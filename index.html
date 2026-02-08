@@ -12,8 +12,6 @@
       margin: 0;
       font-family: Inter, sans-serif;
       background: url("https://www.bitsight.com/sites/default/files/styles/16_9_large_2x/public/2023/01/04/OFAC-sanctions-vendor-risk-management.webp?itok=l_YbJgmh") center/cover no-repeat fixed;
-      background-size: cover;
-      background-position: center;
       min-height: 100vh;
     }
 
@@ -32,16 +30,17 @@
       background: #0d6efd;
       color: #fff;
       font-weight: 600;
+      cursor: pointer;
     }
 
     .container {
       max-width: 420px;
       margin: 90px auto 40px;
-      background: rgba(255, 255, 255, 0.9); /* بیشتر شفاف شدن پس‌زمینه */
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 16px;
       padding: 24px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* سایه بیشتر */
-      backdrop-filter: blur(3px); /* کاهش تاری بک‌گراند */
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(3px);
     }
 
     h1 {
@@ -66,16 +65,28 @@
       margin-bottom: 6px;
     }
 
-    .email {
-      display: block;
-      text-align: center;
-      background: #0d6efd;
-      color: white;
-      padding: 10px;
-      border-radius: 8px;
+    /* EMAIL BUTTONS */
+    .email-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 18px 0;
+    }
+
+    .email-actions button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
       font-weight: 600;
-      text-decoration: none;
-      margin: 16px 0;
+      cursor: pointer;
+      background: #0d6efd;
+      color: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .email-actions button:hover {
+      background: #084298;
     }
 
     .note {
@@ -85,7 +96,6 @@
       margin-bottom: 25px;
     }
 
-    /* Wallets section */
     .wallets {
       margin-top: 40px;
       text-align: center;
@@ -102,7 +112,6 @@
       background-color: rgba(0, 0, 0, 0.15);
       border-radius: 10px;
       padding: 8px 16px;
-      margin: 8px;
       cursor: default;
       transition: background-color 0.3s;
     }
@@ -148,16 +157,16 @@
     <li>Russia (restricted entities)</li>
   </ul>
 
-  <a class="email" href="mailto:ipwalletchain@gmail.com">
-    ipwalletchain@gmail.com
-  </a>
+  <!-- EMAIL BUTTONS -->
+  <div class="email-actions">
+    <button onclick="sendEmail()">ارسال ایمیل</button>
+    <button onclick="copyEmail()">کپی ایمیل آدرس</button>
+  </div>
 
-  <!-- The sentence below will be translated into all languages -->
   <p class="note" id="note">
-    A real person should send a message from their **personal** email address to the provided email, stating the name of their country and requesting to prevent the blockage of their wallet.
+    A real person should send a message from their personal email address to the provided email, stating the name of their country and requesting to prevent the blockage of their wallet.
   </p>
 
-  <!-- Wallets section -->
   <div class="wallets">
     <span>Trust Wallet</span>
     <span>MetaMask</span>
@@ -182,34 +191,47 @@
 </div>
 
 <script>
+const emailAddress = "ipwalletchain@gmail.com";
+
+function sendEmail() {
+  window.location.href = "mailto:" + emailAddress;
+}
+
+function copyEmail() {
+  navigator.clipboard.writeText(emailAddress).then(() => {
+    alert("ایمیل کپی شد");
+  });
+}
+
 function setLang(lang) {
   const t = {
     fa: {
       title: "ثبت IP کیف پول",
       desc: "طبق قوانین OFAC کاربران کشورهای تحریم‌شده باید IP کیف پول خود را ثبت کنند.",
-      note: "شخص حقیقی با ایمیل شخصی خود به آدرس ایمیل درج شده در صفحه پیام دهد و نام کشور خود را ارسال کند و از طریق ایمیل از مسدودی کیف پول خود جلوگیری کند!"
+      note: "شخص حقیقی با ایمیل شخصی خود به ادرس ایمیل درج شده در صفحه پیام دهد و نام کشور خود را ارسال کند و از طریق ایمیل از مسدودی کیف پول خود جلوگیری کند!"
     },
     en: {
       title: "IP Wallet Registration",
       desc: "According to OFAC regulations, users from sanctioned countries must register their wallet IP address.",
-      note: "A real person should send a message from their **personal** email address to the provided email, stating the name of their country and requesting to prevent the blockage of their wallet."
+      note: "A real person should send a message from their personal email address to the provided email, stating the name of their country and requesting to prevent the blockage of their wallet."
     },
     ru: {
       title: "Регистрация IP кошелька",
       desc: "Согласно правилам OFAC, пользователи из санкционных стран должны зарегистрировать IP кошелька.",
-      note: "Настоящее лицо должно отправить сообщение с личного электронного адреса на предоставленный email, указав название своей страны и запросив предотвращение блокировки кошелька."
+      note: "Физическое лицо должно отправить сообщение со своего личного электронного адреса на указанный email, указав название своей страны и предотвратив блокировку своего кошелька."
     },
     de: {
       title: "IP Wallet-Registrierung",
       desc: "Laut OFAC-Vorschriften müssen Benutzer aus sanktionierten Ländern ihre Wallet-IP-Adresse registrieren.",
-      note: "Eine reale Person sollte eine Nachricht von ihrer **persönlichen** E-Mail-Adresse an die angegebene E-Mail senden, den Namen ihres Landes angeben und die Blockierung ihrer Brieftasche verhindern."
+      note: "Eine natürliche Person muss von ihrer persönlichen E-Mail-Adresse eine Nachricht an die auf der Seite angegebene E-Mail senden, den Namen ihres Landes angeben und die Sperrung ihrer Wallet per E-Mail verhindern."
     },
     zh: {
       title: "IP 钱包注册",
-      desc: "根据 OFAC 规定，来自受制裁国家的用户必须注册他们的钱包 IP 地址。",
-      note: "一个真实的人应该从他们的**个人**电子邮件地址向提供的电子邮件发送消息，声明他们的国家名称，并请求防止钱包被阻止。"
+      desc: "根据 OFAC 规定，来自受制裁国家的用户必须注册其钱包 IP 地址。",
+      note: "个人应使用其个人电子邮件地址向页面中提供的电子邮件发送消息，说明其国家名称，并通过电子邮件防止其钱包被封锁。"
     }
   };
+
   document.getElementById("title").innerText = t[lang].title;
   document.getElementById("desc").innerText = t[lang].desc;
   document.getElementById("note").innerText = t[lang].note;
