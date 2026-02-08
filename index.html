@@ -156,6 +156,10 @@
     Please send the name of your country to this email from your **personal** email address for review and IP registration.
   </p>
 
+  <p class="note">
+    A real person should send a message from their **personal** email address to the provided email, stating the name of their country and requesting to prevent the blockage of their wallet.
+  </p>
+
   <!-- Wallets section -->
   <div class="wallets">
     <span>Trust Wallet</span>
@@ -186,32 +190,38 @@ function setLang(lang) {
     fa: {
       title: "ثبت IP کیف پول",
       desc: "طبق قوانین OFAC کاربران کشورهای تحریم‌شده باید IP کیف پول خود را ثبت کنند.",
-      note: "لطفاً نام کشور خود را به این ایمیل ارسال کنید از ایمیل **شخصی** خود برای بررسی."
+      note: "لطفاً نام کشور خود را به این ایمیل ارسال کنید از ایمیل **شخصی** خود برای بررسی.",
+      note2: "شخص حقیقی با ایمیل شخصی خود به آدرس ایمیل درج شده در صفحه پیام دهد و نام کشور خود را ارسال کند و از طریق ایمیل از مسدودی کیف پول خود جلوگیری کند!"
     },
     en: {
       title: "IP Wallet Registration",
       desc: "According to OFAC regulations, users from sanctioned countries must register their wallet IP address.",
-      note: "Please send the name of your country to this email from your **personal** email address for review and IP registration."
+      note: "Please send the name of your country to this email from your **personal** email address for review and IP registration.",
+      note2: "A real person should send a message from their **personal** email address to the provided email, stating the name of their country and requesting to prevent the blockage of their wallet."
     },
     ru: {
       title: "Регистрация IP кошелька",
       desc: "Согласно правилам OFAC, пользователи из санкционных стран должны зарегистрировать IP кошелька.",
-      note: "Пожалуйста, отправьте название вашей страны на этот email для проверки."
+      note: "Пожалуйста, отправьте название вашей страны на этот email для проверки.",
+      note2: "Настоящее лицо должно отправить сообщение с личного электронного адреса на предоставленный email, указав название своей страны и запросив предотвращение блокировки кошелька."
     },
     de: {
       title: "IP Wallet-Registrierung",
       desc: "Laut OFAC-Vorschriften müssen Benutzer aus sanktionierten Ländern ihre Wallet-IP-Adresse registrieren.",
-      note: "Bitte senden Sie den Namen Ihres Landes an diese E-Mail zur Überprüfung."
+      note: "Bitte senden Sie den Namen Ihres Landes an diese E-Mail zur Überprüfung.",
+      note2: "Eine reale Person sollte eine Nachricht von ihrer **persönlichen** E-Mail-Adresse an die angegebene E-Mail senden, den Namen ihres Landes angeben und die Blockierung ihrer Brieftasche verhindern."
     },
     zh: {
       title: "IP 钱包注册",
       desc: "根据 OFAC 规定，来自受制裁国家的用户必须注册他们的钱包 IP 地址。",
-      note: "请将您的国家名称发送到此电子邮件以进行审核。"
+      note: "请将您的国家名称发送到此电子邮件以进行审核。",
+      note2: "一个真实的人应该从他们的**个人**电子邮件地址向提供的电子邮件发送消息，声明他们的国家名称，并请求防止钱包被阻止。"
     }
   };
   document.getElementById("title").innerText = t[lang].title;
   document.getElementById("desc").innerText = t[lang].desc;
   document.getElementById("note").innerText = t[lang].note;
+  document.getElementById("note2").innerText = t[lang].note2;
 }
 </script>
 
