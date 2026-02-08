@@ -42,6 +42,7 @@
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      backdrop-filter: blur(8px); /* برای نمای زیبا و شفاف */
     }
 
     h1 {
@@ -84,7 +85,7 @@
       margin-bottom: 25px;
     }
 
-    /* Wallet names section */
+    /* Wallets section */
     .wallets {
       margin-top: 40px;
       text-align: center;
@@ -147,12 +148,13 @@
     <li>Russia (restricted entities)</li>
   </ul>
 
+  <!-- Updated Email Explanation -->
   <a class="email" href="mailto:ipwalletchain@gmail.com">
     ipwalletchain@gmail.com
   </a>
 
-  <p id="note">
-    Please send the name of your country to this email for review.
+  <p class="note">
+    Please send the name of your country to this email from your **personal** email address for review and IP registration.
   </p>
 
   <!-- Wallets section -->
@@ -184,13 +186,13 @@ function setLang(lang) {
   const t = {
     fa: {
       title: "ثبت IP کیف پول",
-      desc: "طبق قوانین OFAC، کاربران کشورهای تحریم‌شده باید IP کیف پول خود را ثبت کنند.",
-      note: "لطفاً نام کشور خود را به این ایمیل ارسال کنید تا بررسی شود."
+      desc: "طبق قوانین OFAC کاربران کشورهای تحریم‌شده باید IP کیف پول خود را ثبت کنند.",
+      note: "لطفاً نام کشور خود را به این ایمیل ارسال کنید از ایمیل **شخصی** خود برای بررسی."
     },
     en: {
       title: "IP Wallet Registration",
       desc: "According to OFAC regulations, users from sanctioned countries must register their wallet IP address.",
-      note: "Please send the name of your country to this email for review."
+      note: "Please send the name of your country to this email from your **personal** email address for review and IP registration."
     }
   };
   document.getElementById("title").innerText = t[lang].title;
