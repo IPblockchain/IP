@@ -3,89 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <title>IP Wallet Registration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      font-family: 'Inter', Arial, sans-serif;
-      background: url('https://www.bitsight.com/sites/default/files/styles/16_9_large_2x/public/2023/01/04/OFAC-sanctions-vendor-risk-management.webp?itok=l_YbJgmh') center/cover no-repeat fixed;
-      color: #222;
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+      url("https://www.bitsight.com/sites/default/files/styles/16_9_large_2x/public/2023/01/04/OFAC-sanctions-vendor-risk-management.webp?itok=l_YbJgmh");
+      background-size: cover;
+      background-position: center;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-    }
-
-    .overlay {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 30px;
-      border-radius: 16px;
-      margin: auto;
-      max-width: 900px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
     .lang-switch {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+      position: fixed;
+      top: 12px;
+      right: 12px;
       display: flex;
-      gap: 10px;
+      gap: 6px;
     }
 
     .lang-switch button {
-      background: #007bff;
       border: none;
-      color: #fff;
-      padding: 7px 14px;
+      padding: 6px 10px;
       border-radius: 6px;
-      cursor: pointer;
+      background: #0d6efd;
+      color: #fff;
       font-weight: 600;
-      font-size: 0.95rem;
-      transition: 0.2s;
     }
 
-    .lang-switch button:hover {
-      background: #0056b3;
+    .container {
+      max-width: 420px;
+      margin: 90px auto 40px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
     h1 {
       text-align: center;
-      font-size: 2.6rem;
-      margin-bottom: 20px;
-      color: #111;
+      margin-bottom: 14px;
     }
 
     p {
-      margin-bottom: 15px;
-      font-size: 1.05rem;
-      line-height: 1.6;
+      font-size: 14px;
+      text-align: center;
+      color: #333;
     }
 
     ul {
+      margin: 20px 0;
       padding-left: 18px;
-      margin-bottom: 25px;
+      color: #111;
     }
 
     ul li {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
+      margin-bottom: 6px;
     }
 
-    .email-box {
+    .email {
+      display: block;
       text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .email-box a {
-      background: #007bff;
-      color: #fff;
-      padding: 10px 18px;
+      background: #0d6efd;
+      color: white;
+      padding: 10px;
       border-radius: 8px;
-      text-decoration: none;
       font-weight: 600;
-      font-size: 1.1rem;
+      text-decoration: none;
+      margin: 16px 0;
     }
 
     .note {
@@ -95,126 +84,120 @@
       margin-bottom: 25px;
     }
 
+    /* Wallet names section */
     .wallets {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 24px;
-      flex-wrap: wrap;
-      margin-top: 15px;
     }
 
-    .wallets img {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      transition: transform 0.3s;
+    .wallets span {
+      background-color: rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      padding: 8px 16px;
+      margin: 8px;
+      cursor: default;
+      transition: background-color 0.3s;
     }
 
-    .wallets img:hover {
-      transform: scale(1.2);
+    .wallets span:hover {
+      background-color: #0d6efd;
+      color: #fff;
     }
 
     footer {
       text-align: center;
+      font-size: 12px;
+      color: #666;
       margin-top: 20px;
-      font-size: 0.85rem;
-      opacity: 0.7;
-      color: #333;
     }
-
   </style>
 </head>
+
 <body>
 
-  <div class="lang-switch">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('fa')">FA</button>
-    <button onclick="setLang('ru')">RU</button>
-    <button onclick="setLang('de')">DE</button>
-    <button onclick="setLang('zh')">ZH</button>
+<div class="lang-switch">
+  <button onclick="setLang('en')">EN</button>
+  <button onclick="setLang('fa')">FA</button>
+  <button onclick="setLang('ru')">RU</button>
+  <button onclick="setLang('de')">DE</button>
+  <button onclick="setLang('zh')">ZH</button>
+</div>
+
+<div class="container">
+  <h1 id="title">IP Wallet Registration</h1>
+
+  <p id="desc">
+    According to OFAC regulations, users from sanctioned countries must register their wallet IP address.
+  </p>
+
+  <ul>
+    <li>Iran</li>
+    <li>North Korea</li>
+    <li>Cuba</li>
+    <li>Syria</li>
+    <li>Crimea, Donetsk, Luhansk</li>
+    <li>Venezuela</li>
+    <li>Russia (restricted entities)</li>
+  </ul>
+
+  <a class="email" href="mailto:ipwalletchain@gmail.com">
+    ipwalletchain@gmail.com
+  </a>
+
+  <p id="note">
+    Please send the name of your country to this email for review.
+  </p>
+
+  <!-- Wallets section -->
+  <div class="wallets">
+    <span>Trust Wallet</span>
+    <span>MetaMask</span>
+    <span>SafePal</span>
+    <span>Coinbase</span>
+    <span>Exodus</span>
+    <span>Argent</span>
+    <span>Ledger</span>
+    <span>Mycelium</span>
+    <span>Electrum</span>
+    <span>Bitcoin Core</span>
+    <span>Blockchain Wallet</span>
+    <span>Jaxx Liberty</span>
+    <span>Armory</span>
+    <span>Guarda</span>
+    <span>BRD</span>
   </div>
 
-  <div class="overlay">
+  <footer>
+    © 2026 IP Wallet Blockchain
+  </footer>
+</div>
 
-    <h1 id="title">IP Wallet Registration</h1>
-
-    <p id="desc">
-      According to OFAC regulations, users from sanctioned countries must register their wallet IP address.
-    </p>
-
-    <ul id="countries">
-      <li>Iran</li>
-      <li>North Korea</li>
-      <li>Cuba</li>
-      <li>Syria</li>
-      <li>Crimea, Donetsk, Luhansk</li>
-      <li>Venezuela</li>
-      <li>Russia (restricted entities)</li>
-      <li>Germany</li>
-      <li>China</li>
-      <li>India</li>
-      <li>Brazil</li>
-    </ul>
-
-    <div class="email-box">
-      <a href="mailto:ipwalletchain@gmail.com">ipwalletchain@gmail.com</a>
-    </div>
-
-    <div class="note" id="note">
-      Please send the name of your country to this email for review.
-    </div>
-
-    <div class="wallets">
-      <img src="https://cryptologos.cc/logos/trust-wallet-trust-logo.png" alt="Trust Wallet">
-      <img src="https://cryptologos.cc/logos/metamask-metamask-logo.png" alt="MetaMask">
-      <img src="https://cryptologos.cc/logos/safepal-safepal-logo.png" alt="SafePal">
-      <img src="https://cryptologos.cc/logos/coinbase-coinbase-logo.png" alt="Coinbase">
-      <img src="https://cryptologos.cc/logos/exodus-exodus-logo.png" alt="Exodus">
-      <img src="https://cryptologos.cc/logos/argent-argent-logo.png" alt="Argent">
-    </div>
-
-    <footer>
-      © 2026 IP Wallet Blockchain
-    </footer>
-
-  </div>
-
-  <script>
-    const text = {
-      en: {
-        title: "IP Wallet Registration",
-        desc: "According to OFAC regulations, users from sanctioned countries must register their wallet IP address.",
-        note: "Please send the name of your country to this email for review."
-      },
-      fa: {
-        title: "ثبت IP کیف پول",
-        desc: "طبق قوانین OFAC، کاربران کشورهای تحریم‌شده باید IP کیف پول خود را ثبت کنند.",
-        note: "لطفاً نام کشور خود را به این ایمیل ارسال کنید تا بررسی شود."
-      },
-      ru: {
-        title: "Регистрация IP кошелька",
-        desc: "Согласно правилам OFAC, пользователи из санкционных стран должны зарегистрировать IP кошелька.",
-        note: "Пожалуйста, отправьте название вашей страны на этот email для проверки."
-      },
-      de: {
-        title: "IP Wallet-Registrierung",
-        desc: "Laut OFAC-Vorschriften müssen Benutzer aus sanktionierten Ländern ihre Wallet-IP-Adresse registrieren.",
-        note: "Bitte senden Sie den Namen Ihres Landes an diese E-Mail zur Überprüfung."
-      },
-      zh: {
-        title: "IP 钱包注册",
-        desc: "根据 OFAC 规定，来自受制裁国家的用户必须注册他们的钱包 IP 地址。",
-        note: "请将您的国家名称发送到此电子邮件以进行审核。"
-      }
-    };
-
-    function setLang(lang) {
-      document.getElementById("title").innerText = text[lang].title;
-      document.getElementById("desc").innerText = text[lang].desc;
-      document.getElementById("note").innerText = text[lang].note;
-      document.documentElement.lang = lang;
+<script>
+function setLang(lang) {
+  const t = {
+    fa: {
+      title: "ثبت IP کیف پول",
+      desc: "طبق قوانین OFAC، کاربران کشورهای تحریم‌شده باید IP کیف پول خود را ثبت کنند.",
+      note: "لطفاً نام کشور خود را به این ایمیل ارسال کنید تا بررسی شود."
+    },
+    en: {
+      title: "IP Wallet Registration",
+      desc: "According to OFAC regulations, users from sanctioned countries must register their wallet IP address.",
+      note: "Please send the name of your country to this email for review."
     }
-  </script>
+  };
+  document.getElementById("title").innerText = t[lang].title;
+  document.getElementById("desc").innerText = t[lang].desc;
+  document.getElementById("note").innerText = t[lang].note;
+}
+</script>
 
 </body>
 </html>
