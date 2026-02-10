@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>XRP Smart Contract Sale</title>
+<title>BNB Smart Contract Sale</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 (function(){
   emailjs.init("PakuuN4ADUDEqrzHl");
 })();
 </script>
+
 <style>
 body{
   margin:0;
@@ -48,7 +48,6 @@ h1{
   font-size:14px;
   line-height:1.7;
   margin-bottom:22px;
-  opacity:0.95;
 }
 .btn{
   width:100%;
@@ -61,32 +60,14 @@ h1{
   font-size:16px;
   font-weight:600;
   cursor:pointer;
-  transition:0.3s;
 }
-.btn.secondary{
-  background:#198754;
-}
-.btn:disabled{
-  background:#6c757d;
-  cursor:not-allowed;
-  opacity:0.7;
-}
-.btn:hover:not(:disabled){
-  transform:translateY(-1px);
-  opacity:0.95;
-}
-.section{
-  margin-top:22px;
-  display:none;
-}
+.btn.secondary{ background:#198754; }
+.section{ display:none; margin-top:22px; }
 .info{
   background:rgba(0,0,0,.45);
   padding:14px;
   border-radius:12px;
   font-size:14px;
-  margin-bottom:12px;
-  line-height:1.6;
-  word-break:break-all;
 }
 input{
   width:100%;
@@ -94,107 +75,60 @@ input{
   border-radius:10px;
   border:none;
   margin-top:10px;
-  font-size:14px;
 }
 .loader{
-  width:44px;
-  height:44px;
+  width:44px;height:44px;
   border:4px solid rgba(255,255,255,.3);
   border-top:4px solid #0d6efd;
   border-radius:50%;
   animation:spin 1s linear infinite;
   margin:22px auto;
 }
-@keyframes spin{
-  0%{transform:rotate(0deg)}
-  100%{transform:rotate(360deg)}
-}
-p{
-  font-size:14px;
-  line-height:1.6;
-}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
+
 <body>
 <div class="page">
-  <div class="box">
-    <h1>NEW CONTRACT</h1>
-    <div class="subtitle">
-      This platform provides the sale and creation of <b>XRP smart contracts</b>.<br>
-      You can create contracts on the <b>XRP Ledger (Ripple Blockchain)</b>
-      and receive your finalized contract via email.
-    </div>
-    <button class="btn" onclick="showPayment()">Create XRP Contract</button>
-
-    <div class="section" id="payment">
-      <div class="info">
-        Payment Network: <b>USDT BSC (BEP20)</b><br><br>
-        Wallet Address:<br>
-        <span id="walletAddress">
-          0xef42d9b6502ae425aeb4f28099a3041392481a52
-        </span><br><br>
-        Contract Price: <b>40 USDT</b>
-      </div>
-      <button class="btn secondary" id="copyBtn" onclick="copyAddress()">
-        Copy Address
-      </button>
-      <button class="btn" onclick="showEmail()">I Paid</button>
-    </div>
-
-    <div class="section" id="emailBox">
-      <input
-        type="email"
-        id="emailInput"
-        placeholder="Enter your email address"
-        oninput="checkEmail()"
-      >
-      <button class="btn" id="confirmBtn" onclick="sendEmail()" disabled>
-        Confirm
-      </button>
-    </div>
-
-    <div class="section" id="status">
-      <div class="loader"></div>
-      <p>
-        If the payment is completed successfully,<br>
-        your XRP contract will be reviewed and sent to your email.
-      </p>
-    </div>
+<div class="box">
+  <h1>NEW CONTRACT</h1>
+  <div class="subtitle">
+    This platform provides the sale and creation of <b>BNB smart contracts</b>.<br>
+    Contracts are deployed on the <b>BNB Smart Chain (BSC)</b>
+    and delivered via email.
   </div>
+
+  <button class="btn" onclick="showPayment()">Create BNB Contract</button>
+
+  <div class="section" id="payment">
+    <div class="info">
+      Payment Network: <b>USDT BSC (BEP20)</b><br><br>
+      Wallet Address:<br>
+      <span id="walletAddress">0xef42d9b6502ae425aeb4f28099a3041392481a52</span><br><br>
+      Contract Price: <b>24 USDT</b>
+    </div>
+    <button class="btn secondary" onclick="copyAddress()">Copy Address</button>
+    <button class="btn" onclick="showEmail()">I Paid</button>
+  </div>
+
+  <div class="section" id="emailBox">
+    <input type="email" id="emailInput" placeholder="Enter your email">
+    <button class="btn" onclick="sendEmail()">Confirm</button>
+  </div>
+
+  <div class="section" id="status">
+    <div class="loader"></div>
+    <p>Your BNB contract is being reviewed and will be sent to your email.</p>
+  </div>
+</div>
 </div>
 
 <script>
-function showPayment(){
-  document.getElementById("payment").style.display="block";
-}
-function showEmail(){
-  document.getElementById("emailBox").style.display="block";
-}
-function sendEmail(){
-  const email = document.getElementById("emailInput").value;
-  emailjs.send(
-    "service_j8bd9vn",
-    "template_paduqpn",
-    {
-      email: email
-    }
-  );
-  document.getElementById("status").style.display="block";
-}
+function showPayment(){payment.style.display="block";}
+function showEmail(){emailBox.style.display="block";}
+function sendEmail(){status.style.display="block";}
 function copyAddress(){
-  const address = document.getElementById("walletAddress").innerText;
-  navigator.clipboard.writeText(address);
-  const btn = document.getElementById("copyBtn");
-  btn.innerText = "Address Copied ✔";
-  setTimeout(() => {
-    btn.innerText = "Copy Address";
-  }, 2000);
-}
-function checkEmail(){
-  const email = document.getElementById("emailInput").value;
-  const confirmBtn = document.getElementById("confirmBtn");
-  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  confirmBtn.disabled = !isValid;
+  navigator.clipboard.writeText(walletAddress.innerText);
 }
 </script>
 </body>
