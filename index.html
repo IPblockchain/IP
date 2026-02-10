@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BNB Smart Contract Sale</title>
+<title>XRP Smart Contract Sale</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -17,7 +17,7 @@ body{
   font-family:Arial, sans-serif;
   background:
     linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
-    url("https://www.altcoinbuzz.io/wp-content/uploads/2022/08/Youtube-Thumbnails-Nov-2021-1.jpg");
+    url("https://metana.io/wp-content/uploads/2024/10/BscScan.png");
   background-repeat:no-repeat;
   background-position:center top;
   background-size:110%;
@@ -120,13 +120,12 @@ p{
   <div class="box">
     <h1>NEW CONTRACT</h1>
     <div class="subtitle">
-      This platform provides the sale and creation of <b>BNB smart contracts</b>.<br>
-      You can create contracts on the <b>BNB Smart Chain (BSC)</b>
+      This platform provides the sale and creation of <b>XRP smart contracts</b>.<br>
+      You can create contracts on the <b>XRP Ledger (Ripple Blockchain)</b>
       and receive your finalized contract via email.
     </div>
-    <!-- Step 1 -->
-    <button class="btn" onclick="showPayment()">Create BNB Contract</button>
-    <!-- Step 2 -->
+    <button class="btn" onclick="showPayment()">Create XRP Contract</button>
+
     <div class="section" id="payment">
       <div class="info">
         Payment Network: <b>USDT BSC (BEP20)</b><br><br>
@@ -134,14 +133,14 @@ p{
         <span id="walletAddress">
           0xef42d9b6502ae425aeb4f28099a3041392481a52
         </span><br><br>
-        Contract Price: <b>24 USDT</b>
+        Contract Price: <b>40 USDT</b>
       </div>
       <button class="btn secondary" id="copyBtn" onclick="copyAddress()">
         Copy Address
       </button>
       <button class="btn" onclick="showEmail()">I Paid</button>
     </div>
-    <!-- Step 3 -->
+
     <div class="section" id="emailBox">
       <input
         type="email"
@@ -153,16 +152,17 @@ p{
         Confirm
       </button>
     </div>
-    <!-- Step 4 -->
+
     <div class="section" id="status">
       <div class="loader"></div>
       <p>
         If the payment is completed successfully,<br>
-        your BNB contract will be reviewed and sent to your email.
+        your XRP contract will be reviewed and sent to your email.
       </p>
     </div>
   </div>
 </div>
+
 <script>
 function showPayment(){
   document.getElementById("payment").style.display="block";
